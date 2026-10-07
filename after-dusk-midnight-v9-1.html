@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05050a">
+<title>After Dusk — Midnight Archives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04040a;--bg2:#090811;--text:#f8f5f8;--muted:#97919f;--line:#ffffff15;--glass:#ffffff08;--violet:#d9b8ff;--blue:#9edfff;--pink:#ffb9d8;--gold:#f2d99b;--green:#a8f0cb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-5;background:radial-gradient(circle at 50% 0,#211632 0,transparent 32%),radial-gradient(circle at 0 70%,#101b35,transparent 27%),linear-gradient(180deg,#07060d,#030307 80%);pointer-events:none}
+body:after{content:"";position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+canvas{position:fixed;inset:0;z-index:-2;pointer-events:none}.aurora{position:fixed;z-index:-3;width:70vw;height:45vh;left:15vw;top:8vh;filter:blur(75px);opacity:.22;background:radial-gradient(ellipse,#8b6cff,transparent 65%);animation:aurora 11s ease-in-out infinite alternate}@keyframes aurora{to{transform:translate(8vw,7vh)scale(1.12);opacity:.31}}
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:17px 5vw;background:#05050ad9;border-bottom:1px solid #ffffff08;backdrop-filter:blur(20px)}.brand{font-weight:700;letter-spacing:.18em}.brand b{color:var(--violet)}nav a{color:#aaa4b0;text-decoration:none;margin-left:20px;font-size:12px}nav a:hover{color:#fff}.status{font-size:10px;color:var(--green);letter-spacing:.08em}.status i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);margin-right:6px}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:120px 20px 80px;position:relative}.moon{position:absolute;width:285px;height:285px;right:9%;top:15%;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff,#e8e3f7 42%,#aaa4bf 75%,#6e687f);box-shadow:0 0 90px #cbb9ff44,0 0 190px #8b6eff1b;opacity:.85}.moon:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 68% 25%,#68627733 0 5%,transparent 6%),radial-gradient(circle at 38% 70%,#69637428 0 8%,transparent 9%)}
+.eyebrow,.kicker{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--blue)}.hero h1{font:500 clamp(65px,12vw,155px)/.83 "Playfair Display",serif;letter-spacing:-.07em;margin:18px 0}.hero h1 em{color:var(--violet)}.hero p{max-width:640px;color:var(--muted);line-height:1.9;font-size:14px;margin:28px auto}.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#ffffff08;color:#fff;border-radius:999px;padding:13px 20px;font-size:12px;cursor:pointer;text-decoration:none;transition:.3s;backdrop-filter:blur(14px)}.btn:hover{transform:translateY(-3px);border-color:#ffffff3a;background:#fff1}.primary{background:#eee6ff;color:#16111b;border-color:#eee6ff}.scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);color:#69636e;font-size:9px;letter-spacing:.2em;text-transform:uppercase}.scroll:after{content:"";display:block;height:30px;width:1px;background:#666;margin:9px auto;animation:pulse 1.5s infinite}@keyframes pulse{50%{height:7px;opacity:.2}}
+main{max-width:1120px;margin:auto;padding:0 22px}.section{padding:105px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:32px}.section h2{font:500 clamp(38px,6vw,70px)/.95 "Playfair Display",serif;letter-spacing:-.045em;margin:7px 0}.intro{max-width:430px;color:var(--muted);font-size:13px;line-height:1.85}.glass{border:1px solid var(--line);background:linear-gradient(140deg,#ffffff0b,#ffffff03);border-radius:28px;padding:30px;backdrop-filter:blur(20px);box-shadow:0 25px 100px #0003}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{min-height:185px;border:1px solid var(--line);border-radius:23px;padding:24px;background:#ffffff06;position:relative;overflow:hidden;transition:.35s}.card:hover{transform:translateY(-7px);border-color:#ffffff32}.card:after{content:"";position:absolute;width:120px;height:120px;right:-60px;top:-60px;background:#d9b8ff18;border-radius:50%;filter:blur(5px)}.num{color:#706a76;font-size:10px}.card h3{font:500 24px "Playfair Display",serif;margin:34px 0 10px}.card p{color:var(--muted);font-size:12px;line-height:1.75;margin:0}
+.me{display:grid;grid-template-columns:1.02fr .98fr;gap:14px}.identity{min-height:480px;display:flex;flex-direction:column;justify-content:space-between}.tag{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:7px 11px;color:#aaa3b0;font-size:9px;letter-spacing:.14em;text-transform:uppercase}.identity h3{font:500 clamp(43px,6vw,76px)/.9 "Playfair Display",serif;letter-spacing:-.055em;margin:28px 0 15px}.identity h3 em{color:var(--violet)}.identity p{max-width:560px;color:#aaa4b0;line-height:1.9;font-size:13px}.traits{display:flex;gap:7px;flex-wrap:wrap;margin-top:20px}.trait{border:1px solid #ffffff12;background:#fff1;padding:8px 11px;border-radius:999px;color:#d3ced6;font-size:10px}.quote{padding:17px 18px;border-radius:18px;background:#0005;border:1px solid #ffffff10}.quote span{color:#77717c;font-size:9px;letter-spacing:.16em;text-transform:uppercase}.quote strong{display:block;font:500 19px/1.4 "Playfair Display",serif;margin-top:7px}.lines{display:flex;flex-direction:column;gap:9px}.linecard{border:1px solid #ffffff10;background:#ffffff05;border-radius:19px;padding:18px;cursor:pointer;transition:.3s}.linecard:hover,.linecard.active{border-color:#d9b8ff55;transform:translateX(5px);background:#d9b8ff09}.linecard small{display:block;color:#706a76;font-size:9px;text-transform:uppercase;letter-spacing:.15em;margin-bottom:7px}.linecard p{margin:0;font:500 17px/1.45 "Playfair Display",serif}
+.timeline{position:relative;padding-left:30px}.timeline:before{content:"";position:absolute;left:5px;top:0;bottom:0;width:1px;background:linear-gradient(#d9b8ff66,#ffffff08)}.moment{position:relative;margin:0 0 18px;padding:22px;border:1px solid var(--line);border-radius:21px;background:#ffffff05}.moment:before{content:"";position:absolute;left:-30px;top:28px;width:10px;height:10px;border-radius:50%;background:#d9b8ff;box-shadow:0 0 20px #d9b8ff}.moment span{font-size:9px;color:#77717d;letter-spacing:.16em;text-transform:uppercase}.moment h3{font:500 24px "Playfair Display",serif;margin:8px 0}.moment p{color:var(--muted);font-size:12px;line-height:1.75;margin:0}
+.vibe{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.vibe button{min-height:135px;text-align:left;border:1px solid var(--line);border-radius:21px;background:#ffffff05;color:#fff;padding:22px;cursor:pointer;transition:.3s}.vibe button:hover,.vibe button.active{border-color:#d9b8ff5a;background:#d9b8ff0c;transform:scale(1.015)}.vibe strong{display:block;font:500 24px "Playfair Display",serif;margin-bottom:7px}.vibe small{color:var(--muted);line-height:1.55}.result{margin-top:12px;padding:17px;border-radius:18px;background:#0005;color:#c9c2cc;min-height:55px;font-size:12px;line-height:1.6}
+.meter{display:grid;grid-template-columns:1fr 150px;gap:25px;align-items:center}.score{height:150px;width:150px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#d9b8ff 0deg,#9edfff 230deg,#ffffff12 230deg 360deg);position:relative}.score:after{content:"";position:absolute;inset:8px;border-radius:50%;background:#090811}.score b{position:relative;z-index:1;font:500 35px "Playfair Display",serif}.meter h3{font:500 30px "Playfair Display",serif;margin:0 0 10px}.meter p{color:var(--muted);font-size:12px;line-height:1.8}
+.chat{max-width:730px;margin:auto}.bubble{max-width:80%;padding:14px 17px;border-radius:18px;margin:9px 0;font-size:12px;line-height:1.6}.them{background:#ffffff09;border:1px solid var(--line);border-bottom-left-radius:5px}.mebubble{margin-left:auto;background:#d9b8ff;color:#18111d;border-bottom-right-radius:5px}.typing{color:#6d6772;font-size:10px;margin:10px 4px}
+.quiz{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.qbtn{min-height:110px;border:1px solid var(--line);border-radius:20px;background:#ffffff05;color:#ddd6e0;padding:18px;text-align:left;cursor:pointer;transition:.25s}.qbtn:hover{border-color:#d9b8ff55;transform:translateY(-3px)}.qbtn b{display:block;color:#fff;font:500 20px "Playfair Display",serif;margin-bottom:7px}.qbtn small{color:#817a87;line-height:1.4}
+.letter{text-align:center;padding:60px 25px;position:relative;overflow:hidden}.letter:before{content:"";position:absolute;inset:18px;border:1px solid #ffffff09;border-radius:22px}.letter h2{font:italic 500 clamp(38px,6vw,66px) "Playfair Display",serif}.letter p{max-width:650px;margin:18px auto;color:#aba5b0;line-height:2;font-size:13px}.blur{filter:blur(9px);opacity:.25;transition:1s}.blur.show{filter:none;opacity:1}
+.final{text-align:center;padding:130px 0}.final h2{font:500 clamp(48px,9vw,100px)/.9 "Playfair Display",serif;letter-spacing:-.06em;margin:12px 0 20px}.final p{color:var(--muted);font-size:13px;margin-bottom:28px}.ig{display:inline-flex;gap:10px;align-items:center;background:#fff;color:#111;text-decoration:none;border-radius:999px;padding:15px 24px;font-size:12px;font-weight:700;transition:.3s}.ig:hover{transform:translateY(-4px);box-shadow:0 20px 70px #fff2}
+footer{text-align:center;padding:35px;border-top:1px solid #ffffff08;color:#5e5964;font-size:10px}.heart{color:#ff9ec8}.toast{position:fixed;z-index:50;left:50%;bottom:24px;transform:translate(-50%,25px);opacity:0;background:#f7f2f7;color:#171119;padding:11px 17px;border-radius:999px;font-size:11px;transition:.3s}.toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(25px);transition:.8s}.reveal.visible{opacity:1;transform:none}
+@media(max-width:760px){header{padding:15px 17px}nav{display:none}.moon{width:145px;height:145px;right:2%;top:14%;opacity:.5}.hero h1{font-size:68px}.hero p{font-size:13px}.section{padding:75px 0}.section-head{display:block}.intro{margin-top:14px}.grid,.me,.quiz{grid-template-columns:1fr}.identity{min-height:410px}.vibe{grid-template-columns:1fr}.meter{grid-template-columns:1fr;text-align:center}.score{margin:auto}.bubble{max-width:90%}.glass{padding:22px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="aurora"></div><canvas id="stars"></canvas>
+<header><div class="brand">AD<b>.</b></div><div class="status"><i></i> midnight online</div><nav><a href="#me">Me</a><a href="#archive">Archive</a><a href="#vibe">Vibe</a><a href="#chemistry">Chemistry</a><a href="#letter">Letter</a></nav></header>
+
+<section class="hero">
+<div class="moon"></div>
+<div>
+<div class="eyebrow">after 11:00 PM • curiosity detected</div>
+<h1>After <em>Dusk.</em></h1>
+<p>A little corner of the internet built around quiet confidence, good humour, late-night thoughts and the kind of personality that makes you look twice.</p>
+<div class="actions"><a class="btn primary" href="#me">Meet the personality ↓</a><a class="btn" href="#archive">Open the archive</a></div>
+</div><div class="scroll">keep scrolling</div>
+</section>
+
+<main>
+<section id="me" class="section reveal">
+<div class="section-head"><div><div class="kicker">01 · the person behind the page</div><h2>Calm outside.<br>Interesting inside.</h2></div><p class="intro">Not loud. Not trying to win every room. Just comfortable enough to let people discover the rest.</p></div>
+<div class="me">
+<div class="glass identity">
+<div><span class="tag">after dark personality</span>
+<h3>Low volume.<br><em>High presence.</em></h3>
+<p>I like people who can laugh at themselves, conversations that don't feel rehearsed and nights that accidentally become stories. I don't need to explain every move — a little mystery keeps things interesting.</p>
+<div class="traits"><span class="trait">observant</span><span class="trait">confident</span><span class="trait">selective</span><span class="trait">low-key</span><span class="trait">dry humour</span><span class="trait">late-night mind</span></div></div>
+<div class="quote"><span>the energy</span><strong>“I could explain myself. I just don't think I need to.”</strong></div>
+</div>
+<div class="glass">
+<div class="kicker" style="margin-bottom:15px">pickup line archive</div>
+<div class="lines">
+<div class="linecard" onclick="pick(this)"><small>01 · subtle</small><p>“I was going to say hi… then I thought you might prefer being noticed first.”</p></div>
+<div class="linecard" onclick="pick(this)"><small>02 · confident</small><p>“You're either very interesting, or very good at looking like it. Either way, I'm curious.”</p></div>
+<div class="linecard" onclick="pick(this)"><small>03 · playful</small><p>“Are you naturally this distracting, or did today just decide to be unfair?”</p></div>
+<div class="linecard" onclick="pick(this)"><small>04 · smooth</small><p>“I don't believe in perfect timing. I believe in good timing. This feels close.”</p></div>
+<div class="linecard" onclick="pick(this)"><small>05 · dangerous smile</small><p>“You look like the kind of person who could turn a normal evening into a favourite memory.”</p></div>
+</div></div>
+</div>
+</section>
+
+<section id="archive" class="section reveal">
+<div class="section-head"><div><div class="kicker">02 · classified, but not really</div><h2>The personality archive.</h2></div><p class="intro">Six things that probably explain the vibe better than a long introduction ever could.</p></div>
+<div class="grid">
+<div class="card"><span class="num">A01</span><h3>Night thinker</h3><p>Most of the best ideas arrive after everyone else has gone offline.</p></div>
+<div class="card"><span class="num">A02</span><h3>Selective energy</h3><p>Friendly with many. Actually comfortable with a much smaller circle.</p></div>
+<div class="card"><span class="num">A03</span><h3>Playlist personality</h3><p>There is probably a song for every mood. Some moods are classified.</p></div>
+<div class="card"><span class="num">A04</span><h3>Quiet confidence</h3><p>No need for the room to notice. The right people usually do.</p></div>
+<div class="card"><span class="num">A05</span><h3>Professional idiot</h3><p>Can look composed for exactly seven minutes before saying something ridiculous.</p></div>
+<div class="card"><span class="num">A06</span><h3>Small details</h3><p>Remembers tiny things. Pretends not to. Definitely remembers.</p></div>
+</div>
+</section>
+
+<section class="section reveal">
+<div class="section-head"><div><div class="kicker">03 · after dark timeline</div><h2>How the night usually goes.</h2></div></div>
+<div class="timeline">
+<div class="moment"><span>11:07 PM</span><h3>“Just one song.”</h3><p>Which is never actually one song. The playlist has entered the building.</p></div>
+<div class="moment"><span>11:42 PM</span><h3>The real conversation begins.</h3><p>Random jokes slowly turn into the kind of conversation you don't want to end.</p></div>
+<div class="moment"><span>12:31 AM</span><h3>Unexpected honesty.</h3><p>Somewhere between laughing and overthinking, the conversation gets surprisingly real.</p></div>
+<div class="moment"><span>01:17 AM</span><h3>“We should do this again.”</h3><p>The most dangerous sentence because everyone knows what it usually means.</p></div>
+</div>
+</section>
+
+<section id="vibe" class="section reveal">
+<div class="section-head"><div><div class="kicker">04 · your side of the story</div><h2>Pick your kind of night.</h2></div><p class="intro">There is no correct answer. But your choice says a little more than you think.</p></div>
+<div class="glass">
+<div class="vibe">
+<button onclick="vibe('quiet',this)"><strong>🌙 Quiet</strong><small>Late walks, honest conversations and comfortable silence.</small></button>
+<button onclick="vibe('chaos',this)"><strong>✨ Chaos</strong><small>Random plans, bad jokes and somehow a great night.</small></button>
+<button onclick="vibe('dreamy',this)"><strong>🎧 Dreamy</strong><small>Music on, city lights, zero reason to rush home.</small></button>
+<button onclick="vibe('warm',this)"><strong>☕ Warm</strong><small>Good food, easy laughter and staying longer than planned.</small></button>
+</div>
+<div id="vibeResult" class="result">Choose an energy. We'll keep your answer between us.</div>
+</div>
+</section>
+
+<section id="chemistry" class="section reveal">
+<div class="section-head"><div><div class="kicker">05 · completely unscientific</div><h2>The chemistry meter.</h2></div><p class="intro">A playful little test. No serious conclusions. Probably.</p></div>
+<div class="glass meter">
+<div><h3>How naturally would our energies match?</h3><p>Pick a few answers below. The meter reacts to your choices and creates a tiny “midnight compatibility” reading.</p>
+<div class="quiz">
+<button class="qbtn" onclick="answer(18,this)"><b>Late walk</b><small>Talk until the city gets quiet.</small></button>
+<button class="qbtn" onclick="answer(12,this)"><b>Random drive</b><small>No destination. Good playlist.</small></button>
+<button class="qbtn" onclick="answer(16,this)"><b>Café talk</b><small>One coffee becomes three hours.</small></button>
+<button class="qbtn" onclick="answer(10,this)"><b>Movie night</b><small>Comfort wins tonight.</small></button>
+<button class="qbtn" onclick="answer(20,this)"><b>Deep talk</b><small>Skip the small talk.</small></button>
+<button class="qbtn" onclick="answer(14,this)"><b>Chaos plan</b><small>Let's figure it out later.</small></button>
+</div></div>
+<div class="score"><b id="score">0%</b></div>
+</div>
+</section>
+
+<section class="section reveal">
+<div class="section-head"><div><div class="kicker">06 · intercepted conversation</div><h2>One more thing.</h2></div></div>
+<div class="glass chat">
+<div class="bubble them">So… what's your idea of a perfect night?</div>
+<div class="bubble mebubble">Something unplanned that somehow becomes a really good memory.</div>
+<div class="bubble them">That's suspiciously specific.</div>
+<div class="bubble mebubble">I prefer “professionally spontaneous.”</div>
+<div class="typing">typing… •••</div>
+<div id="chatMore" style="display:none"><div class="bubble them">Okay. That was actually a decent answer.</div><div class="bubble mebubble">You can stay. 😌</div></div>
+<button class="btn" onclick="chat()">Continue conversation</button>
+</div>
+</section>
+
+<section class="section reveal">
+<div class="section-head"><div><div class="kicker">07 · choose carefully</div><h2>Three questions. No overthinking.</h2></div></div>
+<div class="glass">
+<div class="quiz">
+<button class="qbtn" onclick="question('music')"><b>First impression?</b><small>Looks, voice or energy?</small></button>
+<button class="qbtn" onclick="question('laugh')"><b>Best quality?</b><small>Kindness, confidence or humour?</small></button>
+<button class="qbtn" onclick="question('night')"><b>Perfect ending?</b><small>Goodnight, one more walk or “text me later”?</small></button>
+</div>
+<div id="questionResult" class="result">Tap one. The answer will appear like a midnight notification.</div>
+</div>
+</section>
+
+<section id="letter" class="section reveal">
+<div class="glass letter">
+<div class="kicker">08 · midnight note</div>
+<h2>For whoever made it this far.</h2>
+<div id="secret" class="blur"><p>You didn't have to open every section. But you did. That's either curiosity or excellent taste — I'll let you decide.</p><p>The attractive part was never trying too hard. It's being comfortable enough to be yourself, curious enough to listen, and confident enough to leave a little mystery.</p><p>If this page made you smile even once, then honestly… worth building.</p></div>
+<button class="btn primary" onclick="unlock()">Unlock the note</button>
+</div>
+</section>
+
+<section class="final reveal">
+<div class="kicker">09 · one last click</div>
+<h2>Curiosity looks good on you.</h2>
+<p>If you want to say hi, you already know where the door is.</p>
+<a class="ig" href="https://www.instagram.com/after_.dusk__?stkn=dmt3dmZjMnJtemll" target="_blank" rel="noopener">Instagram · @after_.dusk__ ↗</a>
+</section>
+</main>
+<footer>made after dark <span class="heart">♥</span> · @after_.dusk__</footer>
+<div id="toast" class="toast"></div>
+
+<script>
+const canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');let W,H,stars=[];
+function resize(){W=canvas.width=innerWidth;H=canvas.height=innerHeight;stars=Array.from({length:Math.min(220,Math.floor(W*H/7000))},()=>({x:Math.random()*W,y:Math.random()*H,r:.2+Math.random()*1.25,a:.15+Math.random()*.85,s:.0015+Math.random()*.005}))}
+function starsDraw(){ctx.clearRect(0,0,W,H);for(const s of stars){s.a+=s.s;if(s.a>1||s.a<.12)s.s*=-1;ctx.globalAlpha=s.a;ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()}requestAnimationFrame(starsDraw)}addEventListener('resize',resize);resize();starsDraw();
+
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(window._toast);window._toast=setTimeout(()=>e.classList.remove('show'),1800)}
+function pick(el){document.querySelectorAll('.linecard').forEach(x=>x.classList.remove('active'));el.classList.add('active');toast('Good choice. That one has a little attitude. ✨')}
+function vibe(v,el){document.querySelectorAll('.vibe button').forEach(x=>x.classList.remove('active'));el.classList.add('active');const m={quiet:"You notice details. You probably prefer one great conversation over ten average ones. 🌙",chaos:"You make plans the way fireworks are made: technically there is a plan. ✨",dreamy:"City lights + music + no rush. Very main-character of you. 🎧",warm:"You like comfort, but you still want the night to feel memorable. ☕"};document.getElementById('vibeResult').textContent=m[v];toast('Vibe locked in.')}
+let score=0;function answer(n,el){if(!el.dataset.done){el.dataset.done=1;score=Math.min(99,score+n);document.getElementById('score').textContent=score+'%';el.style.borderColor='#d9b8ff55';toast(score>=70?'Okay… this is getting interesting.':'Interesting choice. Keep going.')} }
+function chat(){document.getElementById('chatMore').style.display='block';toast('Conversation unlocked 😌')}
+function question(q){const m={music:"Energy first. The right song can tell you more than a whole paragraph.",laugh:"Humour wins. If we can laugh together, the rest usually gets easier.",night:"A slow walk and a “text me when you get home” feels like a pretty good ending."};document.getElementById('questionResult').textContent=m[q];toast('Midnight answer received.')}
+function unlock(){document.getElementById('secret').classList.add('show');toast('Midnight note unlocked ✨')}
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
+</script>
+</body>
+</html>
